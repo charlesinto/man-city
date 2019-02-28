@@ -146,6 +146,14 @@ footer {
     font-size: 16px;
     color: #ffffff;
     padding: 30px 0px;
+    /* text-align: center;
+    font-size: 16px;
+    color: #ffffff;
+    padding: 5px 0px;
+    position: fixed;
+    bottom: 0;
+    display: inline-block;
+    width: 100%; */
 }
 
 footer .img_cover{
@@ -664,9 +672,20 @@ footer .footer_discl {
     text-align: center;
 }
 
+@media screen and (max-width: 700px){
+    .signin_wrapper{
+        margin: 0 !important;
+        width: 100% !important
+    }
+    .signin_wrapper form{
+        width: 100% !important;
+        margin-top: 100px !important
+    }
+}
+
 .signin_wrapper form {
     width: 350px;
-    margin: 0 auto;
+    margin: 0px auto;
 }
 
 .signin_wrapper form button {

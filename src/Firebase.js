@@ -1,10 +1,9 @@
 import firebase from 'firebase/app';
 import 'firebase/app';
 import 'firebase/database';
+import 'firebase/auth';
 
 require('dotenv').config();
-
-console.log(process.env);
 
 const config = {
     apiKey: process.env.REACT_APP_apiKey,
@@ -22,6 +21,7 @@ const firebaseMatches = firebaseDB.ref('matches');
 const firebasePromotions = firebaseDB.ref('promotions');
 
 export {
+  firebase,
   firebaseMatches,
   firebasePromotions
 }

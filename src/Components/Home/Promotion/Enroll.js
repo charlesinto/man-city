@@ -28,43 +28,26 @@ class Enroll extends Component {
     }
     constructor(){
         super();
-        this.submitForm = this.submitForm.bind(this)
-        this.onEmailChange = this.onEmailChange.bind(this);
+        this.submitForm = this.submitForm.bind(this);
     }
-    onEmailChange(event){
-        const formdata = {...this.state.formdata}
-        const { email } = formdata;
-        email.value = event.target.value;
-        const validData = Helper.validate(email);
-        email.valid = validData[0];
-        email.validationMessage = validData[1];
+    onChange(event, id){
+        const formDetails = Helper.onChange(this.state.formdata, id, event.target.value);
         this.setState({
-            formdata: {...formdata,  email: {...email}},
+            formdata: {...this.state.formdata,  [id]: {...formDetails}},
             formError: false,
             formSuccess: ''
         })
+
     }
     submitForm(e){
         e.preventDefault();
-        let objectToSubmit = {};
-        let formIsValid = null;
-        const { formdata } = this.state;
-        for(let key in formdata){
-            objectToSubmit[key] = formdata[key].value;
-            if(formIsValid === null){
-                formIsValid = formdata[key].valid;
-            }
-            else if( formIsValid){
-                formIsValid = formdata[key].valid
-            }
-            
-        }
-        if(!formIsValid){
+        const objectToSubmit = Helper.validateForm(this.state.formdata);
+        if(!objectToSubmit.isValid){
             return this.setState({
                 formError: true
             })
         }
-        this.checkIfDataExists(objectToSubmit);
+        this.checkIfDataExists(objectToSubmit.record);
     }
     checkIfDataExists(record){
         firebasePromotions.orderByChild('email').equalTo(record.email)
@@ -108,7 +91,7 @@ class Enroll extends Component {
                         <div className="enroll_input">
                             <FormField id="email_input"
                                 formdata={this.state.formdata.email}
-                                onChange={this.onEmailChange}
+                                onChange={ (event) => this.onChange(event, 'email')}
                             />
                             {this.displayMessage()}
                             <button onClick={this.onSubmit}>Enroll</button>
