@@ -7,7 +7,7 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <Routes />
+        <Routes {...this.props} />
       </BrowserRouter>
     );
   }
