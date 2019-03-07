@@ -5,7 +5,7 @@ import Footer from '../Header_Footer/Footer';
 
 const Layout = (props) => {
     return (
-        <div>
+        <div style={{positon: "relative"}}>
             <Header />
             {props.children}
 

@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import { ListItem } from '@material-ui/core';
 import { firebase } from '../../../Firebase'
 
-const AdminNav = () => {
+const AdminNav = ({activeLink, matches}) => {
     return (
         <div>
-            {renderItems()}
+            {renderItems(activeLink, matches)}
             <ListItem 
                 button style={styles} onClick={() => logOutHandler()}
             >
@@ -27,12 +27,16 @@ const logOutHandler = () => {
 
 const links = [
     {
+        title:'Home',
+        linkTo: '/dashboard'
+    },
+    {
         title:'Matches',
-        linkTo: '/matches'
+        linkTo: '/admin_matches'
     },
     {
         title:'Add Matches',
-        linkTo: '/matches/edit_match'
+        linkTo: '/admin_matches/edit_match'
     },
     {
         title:'Player',
@@ -50,11 +54,19 @@ const styles = {
     borderBottom:'1px solid #353535'
 }
 
-const renderItems = () => (
+const renderItems = (activeLink, matches) => (
     links.map((link, i) => (
+        (activeLink && activeLink === link.title) ?
+        <Link to={'#'} key={i}>
+            <ListItem button style={{...styles, background:'rgb(152, 197, 233)'}}>
+                { matches ? (link.title === 'Add Matches' ? 
+                (matches.params.id ? 'Edit Match' : link.title) : link.title) : link.title }
+            </ListItem>
+        </Link> :
         <Link to={link.linkTo} key={i}>
             <ListItem button style={styles}>
-                {link.title}
+            { matches ? (link.title === 'Add Matches' ? 
+                (matches.params.id ? 'Edit Match' : link.title) : link.title) : link.title }
             </ListItem>
         </Link>
     ))
