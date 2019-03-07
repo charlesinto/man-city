@@ -2,8 +2,8 @@ import React from 'react';
 import { Tag } from '../../Common'
 const MeetPlayersTag = () => {
     return (
-        <div>
-            <div>
+        <div className="home-text">
+            <div >
                 <Tag
                     style={{
                         background:'#0e1731',

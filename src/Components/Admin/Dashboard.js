@@ -3,7 +3,7 @@ import AdminLayout from '../HOC/AdminLayout';
 
 const Dashboard = () => {
     return (
-        <AdminLayout>
+        <AdminLayout activeLink={'Home'}>
             <div className="user_dashboard">
                 this is your dashboard
             </div>
