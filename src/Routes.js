@@ -8,7 +8,9 @@ import Dashboard from './Components/Admin';
 import PrivateRoute from './Components/AuthRoutes/PrivateRoute';
 import PublicRoute from './Components/AuthRoutes/PublicRoute';
 import AdminMatches from './Components/Admin/Matches';
-import EditMatch from './Components/Admin/AddEditMatch'
+import EditMatch from './Components/Admin/AddEditMatch';
+import Players from './Components/Admin/Players'
+import AddEditPlayer from './Components/Admin/AddEditPlayer';
 
 class Routes extends Component{
     render(){
@@ -22,6 +24,9 @@ class Routes extends Component{
                         <PrivateRoute user={this.props.user} exact path="/admin_matches" component={AdminMatches} />
                         <PrivateRoute user={this.props.user} exact path="/admin_matches/edit_match/:id" component={EditMatch} />
                         <PrivateRoute user={this.props.user} exact path="/admin_matches/edit_match" component={EditMatch} />
+                        <PrivateRoute user={this.props.user} exact path="/players" component={Players} />
+                        <PrivateRoute user={this.props.user} exact path="/players/add_player" component={AddEditPlayer} />
+                        <PrivateRoute user={this.props.user} exact path="/players/add_player/:id" component={AddEditPlayer} />
                     </Switch>
                 </Layout>
             </div>

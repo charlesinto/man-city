@@ -7,13 +7,15 @@ class Helper{
              error = valid ? [false, 'This field is required'] : 
             ( (/\S+@\S+\.\S+/.test(element.value.trim())) ? error : [false, 'Must be a valid email']);
            
+        }else{
+           return element.value ? error : [false, 'Required']
         }
         return error;
     }
 
-    static onChange(formField, id, value){
+    static onChange(formField, id, value, content = ''){
         const formDetails = {...formField[id]}
-        formDetails.value = value;
+        content ? formDetails.value = content : formDetails.value = value
         const validData = this.validateInputField(formDetails);
         formDetails.valid = validData[0];
         formDetails.validationMessage = validData[1]
