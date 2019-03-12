@@ -62,7 +62,7 @@ class Stripe extends Component{
         window.addEventListener('resize', () => this.calculateWidth())
     }
     componentWillUnmount(){
-        window.removeEventListener('resize');
+        window.removeEventListener('resize', this.calculateWidth());
     }
     componentWillMount(){
         this.calculateWidth();

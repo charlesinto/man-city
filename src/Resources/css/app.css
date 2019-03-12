@@ -789,3 +789,15 @@ footer .footer_discl {
     top: calc(50% - 20px);
     left: calc(50% - 20px);
 }
+
+.loading{
+    position: absolute;
+    top: 50%;
+    text-align: center;
+    width: calc(100% - 20px);
+}
+
+.card{
+    margin-top: 10px;
+    margin-right: 10px;
+}

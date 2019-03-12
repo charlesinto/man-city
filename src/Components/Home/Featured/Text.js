@@ -5,7 +5,6 @@ import featured_player from '../../../Resources/images/featured_player.png';
 
 class Text extends Component {
     animateNumber(){
-        const height = (window.innerHeight /2) - 270;
         const width = window.innerWidth/4;
         return (
             <Animate
@@ -25,7 +24,7 @@ class Text extends Component {
                     <div className="featured_number"
                         style={{
                             opacity,
-                            transform:`translate(${width}px, ${height}px) rotateY(${rotate}deg)`
+                            transform:`translate(${width}px, calc(50% - ${94}px)) rotateY(${rotate}deg)`
 
                         }}
                     >
@@ -53,7 +52,7 @@ class Text extends Component {
                     opacity: [1],
                     timing:{ duration: 500, delay:700, ease: easePolyOut},
                     x: [width],
-                    y: [height]
+                    y: [292]
                 }}
 
             >
@@ -61,7 +60,7 @@ class Text extends Component {
                     <div className="featured_first"
                         style={{
                             opacity,
-                            transform:`translate(${x}px, ${y}px)`,
+                            transform:`translate(${x}px, calc(50% + ${y}px))`,
 
                         }}
                     >
@@ -89,7 +88,7 @@ class Text extends Component {
                     opacity: [1],
                     timing:{ duration: 500, delay:800, ease: easePolyOut},
                     x: [width],
-                    y: [height]
+                    y: [240]
                 }}
 
             >
@@ -97,7 +96,7 @@ class Text extends Component {
                     <div className="featured_player"
                         style={{
                             opacity,
-                            transform:`translate(${width}px, ${height}px)`,
+                            transform:`translate(${width}px, calc(50% - ${y}px))`,
                             background: `url(${featured_player})`
                         }}
                     >
@@ -124,7 +123,7 @@ class Text extends Component {
                     opacity: [1],
                     timing:{ duration: 500, delay:800, ease: easePolyOut},
                     x: [width],
-                    y: [height]
+                    y: [412]
                 }}
 
             >
@@ -132,7 +131,7 @@ class Text extends Component {
                     <div className="featured_second"
                         style={{
                             opacity,
-                            transform:`translate(${x}px, ${y}px)`,
+                            transform:`translate(${x}px, calc(50% + ${y}px))`,
 
                         }}
                     >
