@@ -74,7 +74,8 @@ class AddEditPlayer extends Component {
                     label: 'Position',
                     options:[{key:'Defence', value:'Defence'},
                                 {key:'Striker', value:'Striker'},
-                                {key:'Midfield', value:'Midfield'}
+                                {key:'Midfield', value:'Midfield'},
+                                {key:'Keeper', value:'Keeper'}
                             ]
                 },
                 validation:{
@@ -209,7 +210,15 @@ class AddEditPlayer extends Component {
                 playerId,
                 defaultImg: url
             })
-        });
+        })
+        .catch(e => {
+            this.setState({
+                formType:type,
+                formdata: {...newFormData},
+                playerId,
+                defaultImg: ''
+            })
+        })
         
     }
     fetchPlayers(callback, id){
