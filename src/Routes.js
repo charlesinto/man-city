@@ -12,6 +12,9 @@ import EditMatch from './Components/Admin/AddEditMatch';
 import Players from './Components/Admin/Players'
 import AddEditPlayer from './Components/Admin/AddEditPlayer';
 import TheTeam from './Components/TheTeam';
+import TheMatch from './Components/TheMatch';
+import { NotFound } from './Components/Common';
+
 
 class Routes extends Component{
     render(){
@@ -22,6 +25,7 @@ class Routes extends Component{
                         <PublicRoute user={this.props.user} exact path="/" component={Home} />
                         <PublicRoute user={this.props.user} restricted exact path="/sign_in" component={SignIn} />
                         <PublicRoute user={this.props.user}  exact path="/the_team" component={TheTeam} />
+                        <PublicRoute user={this.props.user}  exact path="/the_matches" component={TheMatch} />
                         <PrivateRoute user={this.props.user} exact path="/dashboard" component={Dashboard} />
                         <PrivateRoute user={this.props.user} exact path="/admin_matches" component={AdminMatches} />
                         <PrivateRoute user={this.props.user} exact path="/admin_matches/edit_match/:id" component={EditMatch} />
@@ -29,6 +33,7 @@ class Routes extends Component{
                         <PrivateRoute user={this.props.user} exact path="/players" component={Players} />
                         <PrivateRoute user={this.props.user} exact path="/players/add_player" component={AddEditPlayer} />
                         <PrivateRoute user={this.props.user} exact path="/players/add_player/:id" component={AddEditPlayer} />
+                        <PublicRoute user={this.props.user} component={NotFound} />
                     </Switch>
                 </Layout>
             </div>

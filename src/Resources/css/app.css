@@ -381,7 +381,20 @@ footer .footer_discl {
     background: #62a2d3;
     color: #fff;
 }
-
+.option {
+    padding: 5px 9px;
+    text-align: center;
+    background: #fff;
+    border-radius: 3px;
+    border: 1px solid #98c9e9;
+    line-height: 15px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+.option.active{
+    background: #62a2d3;
+    color: #fff;
+}
 .match_filters_box {
     padding: 10px 20px;
     border-right: 1px solid #01285e;
@@ -392,6 +405,9 @@ footer .footer_discl {
     display: flex;
 }
 
+.cont{
+    display:flex;
+}
 
 /*=============================
             MATCHES BLOCK
@@ -537,6 +553,7 @@ footer .footer_discl {
 
 .the_matches_container {
     margin-top: 96px;
+    min-height: 100vh
 }
 
 .the_matches_wrapper {
