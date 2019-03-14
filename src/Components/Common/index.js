@@ -4,3 +4,4 @@ export * from './PlayerCard';
 export * from './FormField';
 export * from './Td';
 export * from './Fileuploader';
+export * from './NotFound';
